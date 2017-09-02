@@ -38,6 +38,8 @@ var background = (function () {
         if (opts.password) {
             getSettings();
         } else {
+            local_credentials = null;
+            local_vault = null;
             displayLogoutIcons();
         }
 
