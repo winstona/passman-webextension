@@ -9,6 +9,13 @@
                 <span class="bar"></span>
                 <label>{{'refresh_timer' | translate}}</label>
             </div>
+            <div class="group">
+                <input type="text" ng-model="settings.autoLockTime"
+                       required ng-debounce="1000">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>{{'autolock_timer' | translate}}</label>
+            </div>
             <div class="ignored_sites">
                 <label>{{'ignored_sites' | translate}}</label>
                 <ul class="ignored_sites">

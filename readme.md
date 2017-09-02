@@ -23,6 +23,7 @@ Features
 - Update existing logins in passman
 - Build-in OTP generator
 - Search for credentials
+- Auto lock with master password after specified inactivity
 
 Make sure the credential has an url set, otherwise the extension won't be able to find accounts.
 

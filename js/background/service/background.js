@@ -7,6 +7,11 @@ var background = (function () {
 
 
     API.runtime.onConnect.addListener(function (port) {
+        cancelLockExtensionTimeout();
+
+        port.onDisconnect.addListener(function (port) {
+            startLockExtensionTimeout();
+        });
 
         port.onMessage.addListener(function (msg) {
             if (msg === 'credential_amount') {
@@ -601,6 +606,28 @@ var background = (function () {
     }
 
     _self.closeSetupTab = closeSetupTab;
+
+
+    function cancelLockExtensionTimeout() {
+        //console.log("cancelling lock timeout");
+        clearTimeout(_self.autoLockTicker);
+
+    }
+
+    function startLockExtensionTimeout() {
+        if (!_self.settings.autoLockTime) {
+            //console.log("autolock timeout is disabled, skipping")
+            return
+        }
+
+        //console.log("starting lock timeout for " + _self.settings.autoLockTime + " seconds")
+        _self.autoLockTicker = setTimeout(function () {
+            setMasterPassword({password: null});
+        }, _self.settings.autoLockTime * 1000);
+
+    }
+
+    self.startLockExtensionTimeout = startLockExtensionTimeout;
 
     API.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
 

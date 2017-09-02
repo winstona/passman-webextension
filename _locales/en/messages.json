@@ -163,6 +163,10 @@
     "message": "Refresh timer [s]",
     "description": "Password"
   },
+  "autolock_timer": {
+    "message": "Autolock extension after inactivity (0 = disabled) [s]",
+    "description": "Password"
+  },
   "ignore_protocol": {
     "message": "Ignore protocol for site matching",
     "description": "Ignore protocol for site matching"

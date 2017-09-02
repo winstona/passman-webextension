@@ -46,6 +46,7 @@
                 remember_password: true,
                 vault_password: '',
                 refreshTime: 60,
+                autoLockTime: 0,
                 default_vault: {},
                 master_password: '',
                 master_password_repeat: '',
